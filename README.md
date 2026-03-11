@@ -21,7 +21,7 @@ In Geospatial AI, we move beyond simple object detection (bounding boxes) to **S
 * **Spectral Depth:** Utilized a **4-channel input configuration (RGB + Near-Infrared)**. By leveraging the NIR band, the model effectively distinguishes between non-photosynthetic roofing materials and healthy surrounding vegetation, which often share similar signatures in the visible spectrum.
 * **Architecture:** Implemented a custom **U-Net** framework. The integration of **Batch Normalization** and **Dropout** layers ensures spatial robustness, allowing the model to remain accurate across varying urban shadows and diverse architectural designs.
 * **Optimization:** Trained on 1,748 image-mask pairs with a 70/20/10 split. The training was guided by a **Hybrid BCE + Dice Loss** function, specifically chosen to mitigate class imbalance issues where building pixels are significantly outnumbered by the background.
-* **Performance:** Reached a **Validation IoU of 0.88**, yielding highly precise geometric boundaries.
+* **Performance:** Reached a **Validation IoU of 0.87**, yielding highly precise geometric boundaries.
 * **Visual Insight:**
     ![Building Detection](Results/Building%20Detection/Visualizations_on_test/viz_sample_11.png)
 
