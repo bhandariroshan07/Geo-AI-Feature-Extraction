@@ -50,15 +50,15 @@ In Geospatial AI, we move beyond simple object detection (bounding boxes) to **S
 ## Repository Structure
 ```text
 Geo-AI-feature-extraction/
-├── Building_Detection_final.ipynb   # End-to-end pipeline for NAIP building segmentation
-├── Cotton_Detection_final.ipynb     # End-to-end pipeline for Sentinel-2 crop mapping
-├── README.md                        # Project documentation and technical methodology
-└── Results/                         # Comprehensive project artifacts and outputs
+├── Building_Detection_final.ipynb   # End-to-end building segmentation pipeline
+├── Cotton_Detection_final.ipynb     # End-to-end cotton identification pipeline
+├── README.md                        # Project documentation and methodology
+└── Results/                         # Comprehensive project outputs
     ├── Building-Detection/          
-    │   ├── Models/                  # Trained weights (.h5) and architecture exports
-    │   ├── Performance/             # Metrics logs, Loss/Accuracy curves, and IoU reports
-    │   └── Visualizations/          # Predictions on test sets and high-res imagery
+    │   ├── Models/                  # Final trained weights (.h5) and saved models
+    │   ├── Performance Graphs/      # Loss, IoU, F1-Score, Precision/Recall, and LR plots
+    │   └── Visualizations/          # Ground Truth vs. Prediction on test and new images
     └── Cotton-Detection/            
-        ├── Models/                  # Final trained weights for vegetation segmentation
-        ├── Performance/             # Validation logs and learning rate schedules
-        └── Visualizations/          # Crop mask overlays and multi-spectral samples
+        ├── Models/                  # Final trained weights and model exports
+        ├── Performance Graphs/      # Validation metrics and training history logs
+        └── Visualizations/          # Ground Truth vs. Prediction on test and new images
