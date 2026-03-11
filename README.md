@@ -9,58 +9,56 @@ In Geospatial AI, we move beyond simple object detection (bounding boxes) to **S
 * **Geometric Precision:** Capturing the exact shape and area of features.
 * **Boundary Integrity:** Differentiating between touching objects, such as adjacent buildings or overlapping field boundaries.
 
+
+
 ---
 
 ## 1. Building Footprint Extraction (NAIP)
-**Objective:** Identification of residential and commercial structures from high-resolution aerial data.
+**Objective:** Automated identification and mapping of residential and commercial structures using high-resolution aerial datasets.
 
-* **Data Source:** NAIP high-resolution imagery processed into $256 \times 256$ patches.
-* **Spectral Depth:** Utilized a **4-channel input (RGB + Near-Infrared)**. The NIR channel is critical for distinguishing between non-photosynthetic roofing materials and surrounding vegetation.
-* **Model Architecture:** A custom **U-Net** enhanced with Batch Normalization and Dropout layers to ensure the model remains robust against urban shadows and varied architectural styles.
-* **Optimization:** Trained on 1,748 image-mask pairs using a **Hybrid BCE + Dice Loss**. This combination helps the model converge effectively despite the class imbalance between building pixels and background.
-* **Performance:** Achieved a **Validation IoU of 0.88**, resulting in highly accurate geometric footprints.
+* **Data Source:** High-resolution imagery ($256 \times 256$ patches) sourced from the **National Agriculture Imagery Program (NAIP)**. 
+    * **Dataset Access:** You can browse and download this data via the [USGS Earth Explorer](https://earthexplorer.usgs.gov/).
+* **Spectral Depth:** Utilized a **4-channel input configuration (RGB + Near-Infrared)**. By leveraging the NIR band, the model effectively distinguishes between non-photosynthetic roofing materials and healthy surrounding vegetation, which often share similar signatures in the visible spectrum.
+* **Architecture:** Implemented a custom **U-Net** framework. The integration of **Batch Normalization** and **Dropout** layers ensures spatial robustness, allowing the model to remain accurate across varying urban shadows and diverse architectural designs.
+* **Optimization:** Trained on 1,748 image-mask pairs with a 70/20/10 split. The training was guided by a **Hybrid BCE + Dice Loss** function, specifically chosen to mitigate class imbalance issues where building pixels are significantly outnumbered by the background.
+* **Performance:** Reached a **Validation IoU of 0.88**, yielding highly precise geometric boundaries.
 * **Visual Insight:**
-    ![Building Detection](Results/Building%20Detection/Visualization_on_test/viz_sample_11.png)
+    ![Building Detection](Results/Building%20Detection/Visualizations_on_test/viz_sample_11.png)
 
 ---
 
-## 🌿 2. Cotton Crop Identification (Sentinel-2)
-**Objective:** Mapping cotton field boundaries using multi-spectral satellite constellations.
+## 2. Cotton Crop Identification (Sentinel-2)
+**Objective:** High-precision mapping of cotton field boundaries using multi-spectral satellite constellations for agricultural monitoring.
 
-* **Data Source:** Sentinel-2 imagery ($256 \times 256$ patches).
-* **Spectral Depth:** Leveraged **RGB + Near-Infrared** bands to isolate the unique spectral signatures of cotton foliage against soil backgrounds.
-* **Model Architecture:** Custom **U-Net** designed for high-sensitivity feature extraction in agricultural contexts.
-* **Training Strategy:** Developed on 1,597 samples using a 70/20/10 split. The workflow utilized `ReduceLROnPlateau` and `EarlyStopping` to fine-tune the learning rate and prevent overfitting during the final stages of convergence.
-* **Performance:** Achieved a **Validation IoU of 0.93**, demonstrating exceptional sensitivity to irregular field patches and narrow boundaries.
+* **Data Source:** Multi-spectral imagery ($256 \times 256$ patches) acquired from the **Sentinel-2** mission.
+    * **Dataset Access:** Imagery can be accessed and downloaded via the [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/).
+* **Spectral Configuration:** Leveraged **4-channel input (RGB + Near-Infrared)**. The inclusion of the NIR band is essential for isolating the specific reflectance signatures of cotton foliage, allowing the model to distinguish healthy crops from barren soil.
+* **Architecture:** A custom **U-Net** architecture specifically tuned for high-sensitivity feature extraction, ensuring the model captures the nuances of irregular field geometries.
+* **Training Strategy:** Developed on a dataset of 1,597 image-mask pairs using a 70/20/10 split. The optimization process utilized `ReduceLROnPlateau` for dynamic learning rate adjustment and `EarlyStopping` to prevent overfitting.
+* **Performance:** Achieved an exceptional **Validation IoU of 0.93**, demonstrating high sensitivity to narrow field boundaries and fragmented crop patches.
 * **Visual Insight:**
-    ![Cotton Detection](Results/Cotton%20Detection/Visualization_on_test/viz_sample_143.png)
+    ![Cotton Detection](Results/Cotton%20Detection/Visualizations_on_test/viz_sample_143.png)
 
 ---
 
-## 📊 Key Performance Indicators
-For Geo-AI tasks, we focus on the most meaningful metrics for spatial accuracy:
-1.  **Intersection over Union (IoU):** Our primary metric, measuring the spatial "overlap" between predictions and ground truth.
-2.  **F1-Score:** Used to ensure a balance between Precision (not misidentifying features) and Recall (capturing all features).
-3.  **Hybrid Loss:** Utilized to maintain "clean" boundaries, ensuring the masks aren't just accurate in count, but accurate in shape.
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 * **Frameworks:** TensorFlow, Keras
 * **Geospatial Libraries:** GDAL, OSR, Rasterio
 * **Image Processing:** OpenCV, NumPy, PIL
 * **Environment:** Google Colab (GPU Accelerated)
 
----
-
-## 📂 Repository Structure
+## Repository Structure
 ```text
 Geo-AI-feature-extraction/
-├── Building_Detection_final.ipynb   # Building segmentation pipeline
-├── Cotton_Detection_final.ipynb     # Cotton identification pipeline
-├── README.md                        # Project documentation
-└── results/                         # Visualization & performance assets
-    ├── Building Detection/
-    │   └── test_visualization.png   # Model output (NAIP)
-    └── Cotton Detection/
-        └── test_visualization.png   # Model output (Sentinel-2)
+├── Building_Detection_final.ipynb   # End-to-end pipeline for NAIP building segmentation
+├── Cotton_Detection_final.ipynb     # End-to-end pipeline for Sentinel-2 crop mapping
+├── README.md                        # Project documentation and technical methodology
+└── Results/                         # Comprehensive project artifacts and outputs
+    ├── Building-Detection/          
+    │   ├── Models/                  # Trained weights (.h5) and architecture exports
+    │   ├── Performance/             # Metrics logs, Loss/Accuracy curves, and IoU reports
+    │   └── Visualizations/          # Predictions on test sets and high-res imagery
+    └── Cotton-Detection/            
+        ├── Models/                  # Final trained weights for vegetation segmentation
+        ├── Performance/             # Validation logs and learning rate schedules
+        └── Visualizations/          # Crop mask overlays and multi-spectral samples
