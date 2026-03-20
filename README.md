@@ -45,20 +45,23 @@ In Geospatial AI, we move beyond simple object detection (bounding boxes) to **S
 * **Frameworks:** TensorFlow, Keras
 * **Geospatial Libraries:** GDAL, OSR, Rasterio
 * **Image Processing:** OpenCV, NumPy, PIL
-* **Environment:** Google Colab (GPU Accelerated)
+* **Environment:** Google Coolab (GPU Accelerated)
 
 ## Repository Structure
 ```text
 Geo-AI-feature-extraction/
-├── Building_Detection_final.ipynb   # End-to-end building segmentation pipeline
-├── Cotton_Detection_final.ipynb     # End-to-end cotton identification pipeline
-├── README.md                        # Project documentation and methodology
-└── Results/                         # Comprehensive project outputs
-    ├── Building-Detection/          
-    │   ├── Models/                  # Final trained weights (.h5) and saved models
-    │   ├── Performance Graphs/      # Loss, IoU, F1-Score, Precision/Recall, and LR plots
-    │   └── Visualizations/          # Ground Truth vs. Prediction on test and new images
-    └── Cotton-Detection/            
-        ├── Models/                  # Final trained weights and model exports
-        ├── Performance Graphs/      # Validation metrics and training history logs
-        └── Visualizations/          # Ground Truth vs. Prediction on test and new images
+├── Building_Segmentation/
+│   ├── Building_Detection_final.ipynb            # Main pipeline notebook
+│   ├── Models/                                   # Saved .h5 or .pth files
+│   ├── Performance_Graphs/                       # Loss, IoU, F1-Score plots
+│   └── Visualizations/                           # Prediction vs. Ground Truth images
+├── Cotton_Segmentation/
+│   ├── Cotton_Detection_final.ipynb              # Main pipeline notebook
+│   ├── Models/                                   # Saved model weights
+│   ├── Performance_Graphs/                       # Validation metrics
+│   └── Visualizations/                           # Prediction results
+├── Try_With_Data/                                # Dedicated testing/inference module
+│   ├── Cotton_segmentation_with_test.py          # Code to run model on new data
+│   ├── Models/                                   # Model for testing
+│   └── Readme.md                                 # For clear overview
+├── README.md                                     # Project overview and setup instructions
