@@ -17,7 +17,7 @@ To run the prediction successfully, you must have these three files in your loca
 * **Download Link:** 🔗 **[Direct Download: Test Image Zip](https://drive.google.com/uc?export=1GfBpXrhqpsxBcch00szlu9OcVHTAQ9uV)**
 * **Instruction:** Extract the `.zip` file after downloading and move the `.tif` file into this folder.
 
-### 3. The Prediction Notebook (`prediction_demo.ipynb`)
+### 3. The Prediction Notebook (`pCotton_segmentation_with_test_data`)
 * **Source:** Already included in this GitHub folder.
 * **Description:** Python notebook containing the code to load the model and process the image.
 
@@ -30,5 +30,5 @@ Before running the code, ensure your local directory is organized as follows:
 ```text
 your_folder_in_your_computer/
 ├── final_cotton.h5          <-- (Already here)
-├── prediction_demo.ipynb    <-- (Already here)
+├── Cotton_segmentation_with_test_data.ipynb    <-- (Already here)
 ├── test_raster_image.tif    <-- (Extracted from your Zip download)
