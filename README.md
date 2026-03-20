@@ -23,7 +23,7 @@ In Geospatial AI, we move beyond simple object detection (bounding boxes) to **S
 * **Optimization:** Trained on 1,748 image-mask pairs with a 70/20/10 split. The training was guided by a **Hybrid BCE + Dice Loss** function, specifically chosen to mitigate class imbalance issues where building pixels are significantly outnumbered by the background.
 * **Performance:** Reached a **Validation IoU of 0.87**, yielding highly precise geometric boundaries.
 * **Visual Insight:**
-    ![Building Detection](Results/Building%20Detection/Visualizations_on_test/viz_sample_11.png)
+    ![Building Detection](Building_Segmentation/Visualizations_on_test/viz_sample_11.png)
 
 ---
 
@@ -37,7 +37,7 @@ In Geospatial AI, we move beyond simple object detection (bounding boxes) to **S
 * **Training Strategy:** Developed on a dataset of 1,597 image-mask pairs using a 70/20/10 split. The optimization process utilized `ReduceLROnPlateau` for dynamic learning rate adjustment and `EarlyStopping` to prevent overfitting.
 * **Performance:** Achieved an exceptional **Validation IoU of 0.93**, demonstrating high sensitivity to narrow field boundaries and fragmented crop patches.
 * **Visual Insight:**
-    ![Cotton Detection](Results/Cotton%20Detection/Visualizations_on_test/viz_sample_143.png)
+    ![Cotton Detection](Cotton_Segmentation/Visualizations_on_test/viz_sample_143.png)
 
 ---
 
