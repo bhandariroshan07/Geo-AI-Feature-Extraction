@@ -14,7 +14,7 @@ To run the prediction successfully, you must have these three files in your loca
 
 ### 2. The Test Image (Raster .tif)
 * **Source:** **Download Externally** (Due to large file size).
-* **Download Link:** 🔗 **[Direct Download: Test Image Zip](https://drive.google.com/uc?export=1GfBpXrhqpsxBcch00szlu9OcVHTAQ9uV)**
+* **Download Link:** 🔗 **[Direct Download: Test Image Zip]([https://drive.google.com/uc?export=1GfBpXrhqpsxBcch00szlu9OcVHTAQ9uV](https://drive.google.com/uc?export=download&id=1GfBpXrhqpsxBcch00szlu9OcVHTAQ9uV&confirm=t))**
 * **Instruction:** Extract the `.zip` file after downloading and move the `.tif` file into this folder.
 
 ### 3. The Prediction Notebook (`pCotton_segmentation_with_test_data`)
